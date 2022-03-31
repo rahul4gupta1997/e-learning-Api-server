@@ -64,7 +64,8 @@ app.post('/Authlogin',(req,res,next)=>{
     //data.token = req.body.credential.idToken;
     //console.log(data);
     //console.log(req.body.credential.idToken);
-    res.send(req.body.user);
+    console.log('stsTokenManager.accessToken', req.body.user.stsTokenManager.accessToken)
+    res.send(req.body.user.stsTokenManager.accessToken);
 })
 
 app.listen(PORT , ()=>{
