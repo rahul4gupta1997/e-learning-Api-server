@@ -20,9 +20,9 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.get('/welcome',(req,res,next) =>{
+app.get('/',(req,res,next) =>{
     res.send('welcome to our APi Server');
-})
+});
 app.post('/',(req,res,next)=>{
    console.log(req.headers);
    console.log(req.body);
