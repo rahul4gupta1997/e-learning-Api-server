@@ -1,38 +1,27 @@
-// const axios = require('axios').default;
-// axios.post('/SaveData', urlencodedParser,(req,res,next)=>{
-//     response ={
-//         username : req.body.username,
-//         password : req.body.password,
-//         email : req.body.email
-//     }
-//     sequelize.sync().then(()=>{
-//         signup.create(response);
-//     })
-// })
+const express = require('express');
+const app = express();
 const dotenv = require('dotenv');
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 3000;
-const express = require('express');
 var sequelize = require('./controller/database.js');
 var signup = require('./model/signup.js');
 var axios = require('axios');
-const app = express();
 var bodyParser = require('body-parser');
 const { use } = require('express/lib/application');
 const cors = require("cors");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-const corsOptions = {
-    origin: 'http://localhost:3001',
-    optionsSuccessStatus: 200 // for some legacy browsers
-  }
-app.use(cors(corsOptions));
+// const corsOptions = {
+//     origin: `http://${HOST}:${PORT}`,
+//     optionsSuccessStatus: 200 // for some legacy browsers
+//   }
+
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.get('/',(req,res,next) =>{
+app.get('/welcome',(req,res,next) =>{
     res.send('welcome to our APi Server');
-    next();
 })
 app.post('/',(req,res,next)=>{
    console.log(req.headers);
