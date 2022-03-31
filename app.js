@@ -9,7 +9,8 @@
 //         signup.create(response);
 //     })
 // })
-
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || '3000';
 const express = require('express');
 var sequelize = require('./controller/database.js');
 var signup = require('./model/signup.js');
@@ -69,8 +70,10 @@ app.post('/Authlogin',(req,res,next)=>{
     //data.token = req.body.credential.idToken;
     //console.log(data);
     //console.log(req.body.credential.idToken);
-
     res.send(req.body.user);
 })
 
-app.listen(3000);
+app.listen(PORT , ()=>{
+    console.log(`Server Listening at http://${HOST}:${PORT}}`);
+    dotenv.config();
+});
