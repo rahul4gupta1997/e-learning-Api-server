@@ -9,6 +9,7 @@
 //         signup.create(response);
 //     })
 // })
+const dotenv = require('dotenv');
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || '3000';
 const express = require('express');
@@ -29,6 +30,10 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.get('/',(req,res,next) =>{
+    res.send('welcome to our APi Server');
+    next();
+})
 app.post('/',(req,res,next)=>{
    console.log(req.headers);
    console.log(req.body);
