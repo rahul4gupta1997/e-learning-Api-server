@@ -60,11 +60,7 @@ app.post('/login', (req,res,next)=>{
 })
 app.post('/Authlogin',(req,res,next)=>{
     var data = {};
-    console.log(req.body.user);
-    //data.token = req.body.credential.idToken;
-    //console.log(data);
-    //console.log(req.body.credential.idToken);
-    console.log('stsTokenManager.accessToken', req.body.user.stsTokenManager.accessToken)
+    console.log('stsTokenManager.accessToken', req.body.user.stsTokenManager.accessToken);
     res.send(req.body.user.stsTokenManager.accessToken);
 })
 
