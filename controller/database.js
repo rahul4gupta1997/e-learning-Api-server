@@ -4,7 +4,10 @@ const sequelize = new Sequelize('dcgpucpq6uo1hc','hxurszejhsxjsy','e78dc1f82930c
     host: 'ec2-34-207-12-160.compute-1.amazonaws.com',
     dialect: 'postgres',
     dialectOptions: {
-        "ssl": true
+        ssl: {
+            require: true,
+            rejectUnauthorized: false // <<<<<<< YOU NEED THIS
+          }
       },
     pool: {
         max: 9,
